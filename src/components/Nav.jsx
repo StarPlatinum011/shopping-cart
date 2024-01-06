@@ -11,7 +11,7 @@ export default function Navbar() {
       <div className="md:px-10 py-4 px-7 md:flex justify-between items-center bg-white">
         {/* Logo */}
         <div className=" flex text-2x1 cursor-pointer items-center gap-1">
-          <BookOpenIcon className="w-8 h-7 text-blue-700"/>
+          <BookOpenIcon className="w-8 h-7 text-secondary-bg"/>
           <span className="font-bold">Retro Books</span>
         </div>
         
@@ -29,8 +29,9 @@ export default function Navbar() {
            left-0 w-full transition-all bg-white duration-500 ease-in ${isOpen? 'top-12' : 'top-[-490px]'}`}>
             <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/'}>Home</Link></li>
             <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/#about'}>About</Link></li>
+            <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/#contact'}>Contact</Link></li>
             <li className="flex font-semibold my-7 md:my-0 md:ml-8"><Link to={'/cart'}><ShoppingBagIcon className="w-5 h-5 text-black-700"/></Link> <span className="cursor-pointer">1</span></li>
-            <button className="btn bg-blue-600 text-white py-1 px-3 md:ml-8 rounded md:static">Register</button>
+            <button className="btn bg-secondary-bg text-white py-1 px-3 md:ml-8 rounded md:static">Register</button>
           </ul>
         </div>
 
