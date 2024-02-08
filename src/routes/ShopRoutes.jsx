@@ -1,21 +1,30 @@
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import Home from  './routes/Home.jsx'
-import Cart from './routes/Cart.jsx'
-import Contacts from './components/Contacts.jsx';
+import Home from  '../Container/Home.jsx'
+import Cart from '../components/Cart.jsx'
+import SpecificItem  from '../Container/SpecificItem.jsx';
+
+
 const Router = () => {
+
     const router = createBrowserRouter([
         {
             path:'/',
             element: <Home />,
         },
         {
-            path:'cart',
-            element: <Cart />
+            path:'/cart',
+            element: <Cart/>
         },
+        {
+            path: '/items/:id',
+            element: <SpecificItem/>
+        }
     
     ])
     return <RouterProvider router={router}/>
 
 }
+
+
 
 export default Router;

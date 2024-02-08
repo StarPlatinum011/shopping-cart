@@ -1,34 +1,48 @@
 import React from 'react';
-import Meditation from '../assets/meditations-14.jpg';
-import Obstacle from '../assets/obstacle.jpg';
-import Prince from '../assets/prince.jpg';
-import Sapiens from '../assets/sapiens.jpg'
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const ShopMenu = () => {
-    return (
-        <div className='flex mt-40 justify-items-center pl-8 ml-24'>
-            <div className='flex flex-col items-center gap-3'>
-                <img className='object-contain h-48 w-96' src={Meditation}/>
-                <div className='font-semibold text-xl'> $20<span className='text-base'> Meditations</span></div>
-                <button className='btn bg-AccentColor rounded py-1 px-3 text-white'>Add to cart</button>
-            </div>
-            <div className='flex flex-col items-center gap-3'>
-                <img className='object-contain h-48 w-96' src={Obstacle}/>
-                <div className='font-semibold text-xl'> $14<span className='text-base'> Subtle Art</span></div>
-                <button className='btn bg-AccentColor rounded py-1 px-3 text-white'>Add to cart</button>
-            </div>
-            <div className='flex flex-col items-center gap-3'>
-                <img className='object-contain h-48 w-96' src={Prince}/>
-                <div className='font-semibold text-xl'> $8 <span className='text-base'> The Prince</span></div>
-                <button className='btn bg-AccentColor rounded py-1 px-3 text-white'>Add to cart</button>
-            </div>
-            <div className='flex flex-col items-center gap-3'>
-                <img className='object-contain h-48 w-96' src={Sapiens}/>
-                <div className='font-semibold text-xl'>$30<span className='text-base'> Sapiens</span></div>
-                <button className='btn bg-AccentColor rounded py-1 px-3 text-white'>Add to cart</button>               
-            </div>
+
+const ShopMenu = ({shopItems}) => {
+
+    // let name = shopItems[name];
+    // console.log(shopItems, 'new name');
+    // let noSpaceName = name.replaceAll(" ", '-');
+    // console.log(shopItems, 'this is where it goes');
+    return(
+        <div className='flex flex-row mt-40 justify-items-center pl-8 ml-24'>
+            {shopItems.map((data) => {
+                return(
+                    <div key={data.id}>
+                        <div className='flex flex-col items-center gap-3'>
+                        <Link  to={`/items/${data.name}`}>
+                            <img className='object-contain h-48 w-96' src={data.image}/>
+                        </Link>
+                        <div className='font-semibold text-xl'> ${data.price}<span className='text-base'> {data.name}</span></div> 
+                         {/* <button className='btn bg-AccentColor rounded py-1 px-3 text-white'>Add to cart</button>  */}
+                         </div>
+                    </div>
+                )
+                
+            })}
         </div>
-    );
+    )        
 };
 
+ShopMenu.propTypes = {
+    shopItems: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+      })),
+    
+    
+  };
 export default ShopMenu;
+
+{/* <Items name={data.name}
+                            img={data.image}
+                            price={data.price}
+                            id={data.id}
+                        /> */}
