@@ -12,10 +12,13 @@ const ShopMenu = ({shopItems}) => {
     return(
         <div className='flex flex-row mt-40 justify-items-center pl-8 ml-24'>
             {shopItems.map((data) => {
+                //erase the blank space on the name
+                let nameWithoutSpace = data.name.replaceAll(' ', '-');
+                let name = data.name
                 return(
                     <div key={data.id}>
                         <div className='flex flex-col items-center gap-3'>
-                        <Link  to={`/items/${data.name}`}>
+                        <Link state={{name}} to={`/items/${nameWithoutSpace}`}>
                             <img className='object-contain h-48 w-96' src={data.image}/>
                         </Link>
                         <div className='font-semibold text-xl'> ${data.price}<span className='text-base'> {data.name}</span></div> 

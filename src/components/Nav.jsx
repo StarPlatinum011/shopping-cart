@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { BookOpenIcon, ShoppingBagIcon, Bars3BottomRightIcon, XMarkIcon} from '@heroicons/react/24/solid'
 
 
-export default function Navbar() {
+export default function Navbar({cartCount}) {
 
   let [isOpen, setIsOpen] = useState(false);
   return (
@@ -30,7 +30,7 @@ export default function Navbar() {
             <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/'}>Home</Link></li>
             <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/#about'}>About</Link></li>
             <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/#contact'}>Contact</Link></li>
-            <li className="flex font-semibold my-7 md:my-0 md:ml-8"><Link to={'/cart'}><ShoppingBagIcon className="w-5 h-5 text-black-700"/></Link> <span className="cursor-pointer">1</span></li>
+            <li className="flex font-semibold my-7 md:my-0 md:ml-8"><Link to={'/cart'}><ShoppingBagIcon className="w-5 h-5 text-black-700"/></Link> <span className="cursor-pointer">{cartCount}</span></li>
             <button className="btn bg-secondary-bg text-white py-1 px-3 md:ml-8 rounded md:static">Register</button>
           </ul>
         </div>
