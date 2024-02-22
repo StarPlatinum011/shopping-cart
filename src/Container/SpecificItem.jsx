@@ -4,9 +4,10 @@ import { ItemContext } from '../components/ItemContext';
 import Navbar from '../components/Nav';
 import Footer from '../components/Footer.jsx';
 import PropTypes from 'prop-types';
+import SingleProduct from '../components/SingleProduct.jsx';
 
 
-const SpecificItem = ({shopItems}) => {
+const SpecificItem = ({shopItems, setShopItems}) => {
     // const {shopItems} = useContext(ItemContext)
     const [cartCount, setCartCount] = useState(0);
 
@@ -14,18 +15,24 @@ const SpecificItem = ({shopItems}) => {
     const location = useLocation();
     const {name} = location.state;
 
+    //this returns a new array
     let selectedItem = shopItems.filter((item) => item.name === name);
 
-    console.log(selectedItem, 'this is coming from specific items');
-
     return (
-        <div>
+        
+        <>
         <Navbar cartCount={cartCount}/>
+        <div className="max-w-7xl mx-auto p-8 mt-24 mb-auto h-screen justify-between">
+          {/* being an array need to map through to access it */}
+          {selectedItem.map((item) => (
+            <SingleProduct key={item.id} id={item.id} img={item.image} name={item.name} price={item.price} desc={item.desc} shopItems={shopItems} setShopItems={setShopItems} setCartCounts={setCartCount}/>
+          ))}
 
 
-
-        <Footer/>
         </div>
+        <Footer/>
+
+      </>
     );
 };
 
@@ -35,6 +42,7 @@ SpecificItem.propTypes = {
         image: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
+        desc: PropTypes.string.isRequired,
       })),
     
     

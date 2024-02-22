@@ -4,7 +4,7 @@ import Home from  '../Container/Home.jsx'
 import Cart from '../components/Cart.jsx'
 import SpecificItem  from '../Container/SpecificItem.jsx';
 import data from '../components/BooksData.jsx';
-import { ItemContext } from '../components/ItemContext.jsx'
+// import { ItemContext } from '../components/ItemContext.jsx'
 
 
 const Router = () => {
@@ -26,10 +26,11 @@ const Router = () => {
          })
  
          setSubTotal(total);
+         setCartItems(newCartItems);
  
-     },[shopItems])
+     },[shopItems]);
+     console.log(subTotal, 'this is the total amount')
 
-    //  <ItemContext.Provider value={{cartItems, setCartItems, shopItems, setShopItems, subTotal}}>
     const router = createBrowserRouter([
 
         {
@@ -42,12 +43,11 @@ const Router = () => {
         },
         {
             path: '/items/:id',
-            element: <SpecificItem shopItems={shopItems}/>
+            element: <SpecificItem shopItems={shopItems} setShopItems={setShopItems}/>
         },
 
     ])
     return <RouterProvider router={router}/>
-    // </ItemContext.Provider>
 
 }
 

@@ -3,14 +3,12 @@ import ShopMenu from '../components/ShopMenu.jsx';
 import About from '../components/About.jsx';
 import Contacts from '../components/Contacts.jsx';
 import Footer from '../components/Footer.jsx';
-import { ItemContext } from '../components/ItemContext.jsx'
 import PropTypes from 'prop-types';
 
 function Home ({shopItems}) {  
     return(
         
         <div>
-            {/* <ItemContext.Provider value={{cartItems, setCartItems, shopItems, setShopItems, subTotal}}> */}
                 <NavBar/>
                 <div className='bg-slate w-full h-200'>
                     <ShopMenu shopItems={shopItems}/>
@@ -22,7 +20,6 @@ function Home ({shopItems}) {
                     <Contacts/>
                 </div>
                 <Footer/>
-            {/* </ItemContext.Provider> */}
         </div>
     )
 }
@@ -37,3 +34,7 @@ Home.propTypes = {
     
   };
 export default Home;
+
+
+
+

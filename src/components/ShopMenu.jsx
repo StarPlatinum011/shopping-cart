@@ -22,7 +22,6 @@ const ShopMenu = ({shopItems}) => {
                             <img className='object-contain h-48 w-96' src={data.image}/>
                         </Link>
                         <div className='font-semibold text-xl'> ${data.price}<span className='text-base'> {data.name}</span></div> 
-                         {/* <button className='btn bg-AccentColor rounded py-1 px-3 text-white'>Add to cart</button>  */}
                          </div>
                     </div>
                 )
