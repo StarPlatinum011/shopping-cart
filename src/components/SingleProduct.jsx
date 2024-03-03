@@ -7,7 +7,7 @@ const SingleProduct = ({id, img, name, price, desc, shopItems, setShopItems, set
 
     const [quantity, setQuantity] = useState(1);
 
-    console.log(shopItems[id], 'this is a shop items/.')
+    // console.log(shopItems[id], 'this is a shop items')
 
     const addQuantity= () => {
         if(Object.prototype.hasOwnProperty.call(shopItems[id],'quantity')) {
@@ -75,6 +75,8 @@ SingleProduct.propTypes = {
     price: PropTypes.number.isRequired,
     desc: PropTypes.string.isRequired,
     img:PropTypes.string.isRequired,
+    setShopItems: PropTypes.func.isRequired,
+    setCartCounts: PropTypes.func.isRequired,
   };
 
 export default SingleProduct;

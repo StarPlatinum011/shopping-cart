@@ -28,8 +28,8 @@ export default function Navbar({cartCount}) {
           <ul className={`md:flex pl-9 md:pl-0 md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1]
            left-0 w-full transition-all bg-white duration-500 ease-in ${isOpen? 'top-12' : 'top-[-490px]'}`}>
             <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/'}>Home</Link></li>
-            <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/#about'}>About</Link></li>
-            <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/#contact'}>Contact</Link></li>
+            {/* <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/#about'}>About</Link></li>
+            <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/#contact'}>Contact</Link></li> */}
             <li className="flex font-semibold my-7 md:my-0 md:ml-8"><Link to={'/cart'}><ShoppingBagIcon className="w-5 h-5 text-black-700"/></Link> <span className="cursor-pointer">{cartCount}</span></li>
             <button className="btn bg-secondary-bg text-white py-1 px-3 md:ml-8 rounded md:static">Register</button>
           </ul>

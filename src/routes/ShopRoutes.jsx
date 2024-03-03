@@ -4,7 +4,7 @@ import Home from  '../Container/Home.jsx'
 import Cart from '../components/Cart.jsx'
 import SpecificItem  from '../Container/SpecificItem.jsx';
 import data from '../components/BooksData.jsx';
-// import { ItemContext } from '../components/ItemContext.jsx'
+// import { ItemContext } from '../components/ItemContext.jsx';
 
 
 const Router = () => {
@@ -18,19 +18,23 @@ const Router = () => {
      useEffect(()=> {
          let total = 0;
  
-         //Filter the null and empty values from the array
+         //Filter the null items that does not contains quantity
          let newCartItems = shopItems.filter((item)=> Boolean(item.quantity));
  
          newCartItems.map((item) => {
              total = total + item.quantity * item.price;
          })
+         console.log('new cart updates: ', newCartItems)
+
  
          setSubTotal(total);
          setCartItems(newCartItems);
  
      },[shopItems]);
-     console.log(subTotal, 'this is the total amount')
 
+     console.log(' cart : ', cartItems)
+
+     
     const router = createBrowserRouter([
 
         {
@@ -39,7 +43,7 @@ const Router = () => {
         },
         {
             path:'/cart',
-            element: <Cart cartItems={cartItems}/>
+            element: <Cart cartItems={cartItems} subTotal={subTotal} shopItems={shopItems} setShopItems={setShopItems}/>
         },
         {
             path: '/items/:id',
