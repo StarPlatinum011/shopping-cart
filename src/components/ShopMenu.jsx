@@ -43,8 +43,3 @@ ShopMenu.propTypes = {
   };
 export default ShopMenu;
 
-{/* <Items name={data.name}
-                            img={data.image}
-                            price={data.price}
-                            id={data.id}
-                        /> */}

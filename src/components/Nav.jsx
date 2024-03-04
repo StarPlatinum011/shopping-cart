@@ -6,13 +6,20 @@ import { BookOpenIcon, ShoppingBagIcon, Bars3BottomRightIcon, XMarkIcon} from '@
 export default function Navbar({cartCount}) {
 
   let [isOpen, setIsOpen] = useState(false);
+
+  const loadModal = () => {
+    
+  }
   return (
     <div className="shadow-md w-full fixed top-0 left-0">
       <div className="md:px-10 py-4 px-7 md:flex justify-between items-center bg-white">
         {/* Logo */}
         <div className=" flex text-2x1 cursor-pointer items-center gap-1">
+          <Link to={'/'} className="flex">
           <BookOpenIcon className="w-8 h-7 text-secondary-bg"/>
           <span className="font-bold">Retro Books</span>
+          </Link>
+          
         </div>
         
         {/* Hamburger menu */}
@@ -31,7 +38,7 @@ export default function Navbar({cartCount}) {
             {/* <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/#about'}>About</Link></li>
             <li className="font-semibold my-7 md:my-0 md:ml-8"><Link to={'/#contact'}>Contact</Link></li> */}
             <li className="flex font-semibold my-7 md:my-0 md:ml-8"><Link to={'/cart'}><ShoppingBagIcon className="w-5 h-5 text-black-700"/></Link> <span className="cursor-pointer">{cartCount}</span></li>
-            <button className="btn bg-secondary-bg text-white py-1 px-3 md:ml-8 rounded md:static">Register</button>
+            <button className="btn bg-secondary-bg hover:bg-AccentColor text-white py-1 px-3 md:ml-8 rounded md:static" onClick={loadModal}>Register</button>
           </ul>
         </div>
 

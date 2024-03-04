@@ -32,8 +32,8 @@ const SingleCartItem = ({item, shopItems, setShopItems}) => {
     }
 
     return (
-        <div className='flex gap-10 py-4 px-4 m-4 justify-between border-solid border-2'>
-            <div className='flex'>
+        <div className='flex flex-col lg:flex-row gap-10 py-4 px-4 m-4 justify-between  border-2'>
+            <div className='flex items-center p-2 gap-4'>
                 <img className='w-40 h-full aspect-square object-fit' src={item.image} alt={item.name}/>
                 <div className='px-4'>
                     <div className='text font-bold'>{item.name}</div>
@@ -43,7 +43,7 @@ const SingleCartItem = ({item, shopItems, setShopItems}) => {
             <div className='flex flex-row gap-8 items-center'>
                 <h5>Quantity</h5>
                 <input className='bg-gray-100 py-2 px-4 h-8' type='number' min='1' value={qty} onChange={changeQty}/>
-                <button className='flex items-center btn  bg-red-600 h-8 rounded text-white py-3 px-16 text-white' onClick={deletItem}>Delete</button>
+                <button className='flex items-center btn  bg-red-600 h-8 rounded text-white py-3 px-12 text-white' onClick={deletItem}>Delete</button>
             </div>
         </div>
     );
