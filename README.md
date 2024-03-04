@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+
+A basic shopping cart project with react and tailwind. 
+A full utilization of react router. 
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
